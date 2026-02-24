@@ -2,7 +2,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "admin": "admin" });
 
-  // Collections for section materials (Markdown files)
   const sections = ["parents", "teachers", "method", "childhood", "kids", "misc", "achievements"];
   sections.forEach((s) => {
     eleventyConfig.addCollection(s, (api) =>
@@ -13,7 +12,8 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "dist"
+      output: "dist",
+      includes: "layouts"   // 👈 ВОТ ЭТА СТРОКА ГЛАВНАЯ
     },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
