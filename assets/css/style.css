@@ -1,0 +1,305 @@
+:root{
+  --bg:#f7f1df;
+  --text:#203040;
+  --muted:#6b7280;
+
+  --mint:#57c3b0;
+  --mint2:#7ad9c8;
+
+  --orange:#ff7b2c;
+  --orange2:#ff9a57;
+
+  --card:#ffffffcc;
+  --shadow: 0 10px 30px rgba(18, 38, 63, .10);
+  --radius: 28px;
+
+  --tileRadius: 22px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+.container{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 18px 40px;
+  position:relative;
+}
+
+/* --- BACKGROUND ILLUSTRATIONS (SVG-like via CSS) --- */
+.bg{position:fixed; inset:0; pointer-events:none; z-index:-1;}
+.bg__stars{
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,193,7,.7) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 15%, rgba(120,180,255,.6) 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 30%, rgba(255,193,7,.5) 0 2px, transparent 3px);
+  opacity:.35;
+}
+.bg__rainbow{
+  position:absolute;
+  right: -120px; top: 40px;
+  width: 420px; height: 260px;
+  background:
+    radial-gradient(circle at 30% 70%,
+      transparent 0 42%,
+      rgba(255,90,90,.95) 42% 46%,
+      rgba(255,180,70,.95) 46% 50%,
+      rgba(255,235,95,.95) 50% 54%,
+      rgba(120,220,160,.95) 54% 58%,
+      rgba(110,175,255,.95) 58% 62%,
+      transparent 62% 100%);
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,.10));
+  border-radius: 999px;
+  opacity:.9;
+}
+.bg__grass{
+  position:absolute;
+  left:0; right:0; bottom:-40px;
+  height: 180px;
+  background: radial-gradient(ellipse at center, rgba(139,195,74,.75), rgba(139,195,74,.55));
+  transform: skewY(-2deg);
+  opacity:.8;
+}
+.cloud{
+  position:absolute;
+  width: 220px; height: 80px;
+  background: rgba(255,255,255,.75);
+  border-radius: 999px;
+  filter: blur(.2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  animation: float 9s ease-in-out infinite;
+}
+.cloud:before,.cloud:after{
+  content:"";
+  position:absolute;
+  background: rgba(255,255,255,.75);
+  border-radius:999px;
+}
+.cloud:before{width:90px;height:90px;left:25px;top:-35px}
+.cloud:after{width:120px;height:120px;left:95px;top:-55px}
+.cloud--1{left:40px; top:70px; animation-duration: 10s}
+.cloud--2{left:55%; top:120px; width:260px; opacity:.7; animation-duration: 12s}
+.cloud--3{left:20%; top:260px; width:180px; opacity:.55; animation-duration: 11s}
+@keyframes float{
+  0%,100%{transform: translateY(0)}
+  50%{transform: translateY(-10px)}
+}
+
+/* --- HERO --- */
+.hero{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 18px;
+  padding: 44px 20px 28px;
+  border-radius: 34px;
+  background: linear-gradient(180deg, rgba(87,195,176,.96), rgba(122,217,200,.96));
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.hero__avatar{
+  position:absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px; height: 120px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.65);
+  display:grid; place-items:center;
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+.hero__avatar img{
+  width: 104px; height: 104px;
+  border-radius: 999px;
+  object-fit:cover;
+  border: 4px solid rgba(255,255,255,.95);
+}
+.hero__card{
+  margin-top: 78px;
+  text-align:center;
+  max-width: 760px;
+  padding: 22px 18px 10px;
+  color: #0b2a2a;
+}
+.hero__title{
+  margin:0 0 10px;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: rgba(10,70,70,.95);
+}
+.hero__subtitle{
+  margin:0 0 10px;
+  font-weight:700;
+  opacity:.9;
+}
+.hero__desc{
+  margin: 0 0 18px;
+  font-weight:700;
+  color: rgba(8,60,60,.9);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration:none;
+  font-weight: 800;
+  letter-spacing:.2px;
+  transition: transform .18s ease, filter .18s ease;
+}
+.btn--primary{
+  background: linear-gradient(180deg, var(--orange), var(--orange2));
+  color:#fff;
+  box-shadow: 0 12px 24px rgba(255,123,44,.25);
+}
+.btn:hover{transform: translateY(-2px)}
+.btn:active{transform: translateY(0px) scale(.98)}
+
+/* --- GRID LIKE YOUR MOCKUP --- */
+.grid{
+  margin-top: 26px;
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "parents parents teachers teachers method method"
+    "childhood childhood childhood kids kids kids"
+    "misc misc achievements achievements kids kids";
+  gap: 18px;
+}
+.tile{
+  position:relative;
+  border-radius: var(--tileRadius);
+  padding: 22px 18px;
+  text-decoration:none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  background: #fff;
+}
+.tile:hover{transform: translateY(-4px)}
+.tile:active{transform: translateY(-1px) scale(.99)}
+
+.tile__title{font-size: 22px; font-weight: 900; line-height: 1.05;}
+.tile__subtitle{margin-top:8px; color: rgba(0,0,0,.55); font-weight:800;}
+.tile__icon{font-size: 34px; margin-top: 12px; opacity:.95}
+
+.tile--parents{grid-area: parents; background: #f3d7a6;}
+.tile--teachers{grid-area: teachers; background: #bfe9df;}
+.tile--method{grid-area: method; background: #f2b544;}
+.tile--childhood{grid-area: childhood; background: #59c8b6; color:#08333a;}
+.tile--kids{grid-area: kids; background: #f7c948;}
+.tile--misc{grid-area: misc; background: #f3c88d;}
+.tile--achievements{grid-area: achievements; background: #9ec45f; color:#0c2b1f;}
+
+.tile__title--big{font-size: 28px}
+
+/* simple CSS illustrations */
+.tile__illustration{
+  position:absolute;
+  right: -20px;
+  bottom: -30px;
+  width: 190px;
+  height: 190px;
+  opacity: .95;
+  transform: rotate(-3deg);
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,.10));
+}
+.tile__illustration--bear{
+  background:
+    radial-gradient(circle at 45% 40%, #ffb34d 0 34%, transparent 35%),
+    radial-gradient(circle at 35% 30%, #ff9a2f 0 12%, transparent 13%),
+    radial-gradient(circle at 55% 30%, #ff9a2f 0 12%, transparent 13%),
+    radial-gradient(circle at 40% 45%, #222 0 3%, transparent 4%),
+    radial-gradient(circle at 52% 45%, #222 0 3%, transparent 4%),
+    radial-gradient(circle at 47% 54%, #222 0 5%, transparent 6%),
+    radial-gradient(circle at 47% 64%, #ffd08a 0 10%, transparent 11%);
+  border-radius: 40% 40% 45% 45%;
+}
+.tile__illustration--kid{
+  background:
+    radial-gradient(circle at 45% 38%, #ffd2b7 0 30%, transparent 31%),
+    radial-gradient(circle at 45% 25%, #8b5a2b 0 20%, transparent 21%),
+    radial-gradient(circle at 38% 40%, #222 0 3%, transparent 4%),
+    radial-gradient(circle at 53% 40%, #222 0 3%, transparent 4%),
+    radial-gradient(circle at 45% 50%, #e33 0 5%, transparent 6%),
+    linear-gradient(180deg, #ff6a3d, #ff9a57);
+  border-radius: 35%;
+  clip-path: polygon(10% 15%, 90% 15%, 90% 95%, 10% 95%);
+}
+
+@media (max-width: 860px){
+  .grid{
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "parents teachers"
+      "method method"
+      "childhood childhood"
+      "kids kids"
+      "misc achievements";
+  }
+  .tile__illustration{width:160px;height:160px}
+}
+
+/* --- PAGES --- */
+.pageHead{margin-top: 18px;}
+.back{
+  display:inline-flex;
+  text-decoration:none;
+  color: rgba(0,0,0,.65);
+  font-weight:800;
+  margin-bottom: 10px;
+}
+.pageTitle{margin:0; font-size: clamp(26px, 3vw, 34px); font-weight: 900;}
+.pageSubtitle{margin:8px 0 0; color: var(--muted); font-weight:800}
+
+.paper{
+  margin-top: 16px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+.lead{font-weight:800; margin:0 0 14px;}
+.muted{color: var(--muted); font-weight:800}
+.list{margin: 0; padding-left: 18px; font-weight:800; color: rgba(0,0,0,.72)}
+
+.cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+.card{
+  background: rgba(255,255,255,.82);
+  border-radius: 18px;
+  padding: 14px;
+  border: 1px solid rgba(0,0,0,.05);
+}
+.card__title{margin:0 0 6px; font-weight: 900}
+.card__meta{font-size: 13px; color: var(--muted); font-weight:800}
+.card__desc{margin: 8px 0 10px; color: rgba(0,0,0,.7); font-weight:800}
+.card__link{
+  display:inline-flex;
+  font-weight:900;
+  text-decoration:none;
+  color: rgba(20,80,90,.95);
+}
+.footer{
+  text-align:center;
+  margin-top: 26px;
+  color: rgba(0,0,0,.45);
+  font-weight:800;
+}
