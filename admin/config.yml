@@ -1,0 +1,86 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: "/"
+
+collections:
+  - name: "parents"
+    label: "Родителям"
+    folder: "src/content/parents"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "string", required: false }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "teachers"
+    label: "Педагогам"
+    folder: "src/content/teachers"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "string", required: false }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "method"
+    label: "Методическая копилка"
+    folder: "src/content/method"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "string", required: false }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "childhood"
+    label: "Мир детства"
+    folder: "src/content/childhood"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "string", required: false }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "kids"
+    label: "Достижения детей"
+    folder: "src/content/kids"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "string", required: false }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "misc"
+    label: "Разное"
+    folder: "src/content/misc"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "string", required: false }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "achievements"
+    label: "Достижения"
+    folder: "src/content/achievements"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "string", required: false }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Текст", name: "body", widget: "markdown" }

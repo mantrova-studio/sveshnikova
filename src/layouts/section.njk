@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+---
+
+<section class="pageHead">
+  <a class="back" href="/">← На главную</a>
+  <h1 class="pageTitle">{{ title }}</h1>
+  {% if subtitle %}<p class="pageSubtitle">{{ subtitle }}</p>{% endif %}
+</section>
+
+<section class="paper">
+  {% if intro %}<p class="lead">{{ intro }}</p>{% endif %}
+
+  {% if items and items.length %}
+    <div class="cards">
+      {% for it in items %}
+        <article class="card">
+          <h3 class="card__title">{{ it.data.title }}</h3>
+          {% if it.data.date %}<div class="card__meta">{{ it.data.date | date("yyyy-LL-dd") }}</div>{% endif %}
+          {% if it.data.description %}<p class="card__desc">{{ it.data.description }}</p>{% endif %}
+          <a class="card__link" href="{{ it.url }}">Открыть</a>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="muted">Пока материалов нет. Добавьте через админ-панель.</p>
+  {% endif %}
+</section>

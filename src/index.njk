@@ -1,0 +1,56 @@
+---
+layout: layouts/base.njk
+title: Главная
+---
+
+<section class="hero">
+  <div class="hero__avatar">
+    <img src="/assets/img/photo.jpg" alt="Фото воспитателя">
+  </div>
+
+  <div class="hero__card">
+    <h1 class="hero__title">{{ site.title }}</h1>
+    <p class="hero__subtitle">{{ site.subtitle }}</p>
+    <p class="hero__desc">{{ site.desc }}</p>
+
+    <a class="btn btn--primary" href="/about/">Обо мне</a>
+  </div>
+</section>
+
+<section class="grid">
+  <a class="tile tile--parents" href="/parents/">
+    <div class="tile__title">Родителям</div>
+    <div class="tile__icon">❤</div>
+  </a>
+
+  <a class="tile tile--teachers" href="/teachers/">
+    <div class="tile__title">Педагогам</div>
+    <div class="tile__icon">🧩</div>
+  </a>
+
+  <a class="tile tile--method" href="/method/">
+    <div class="tile__title">Методическая<br>копилка</div>
+    <div class="tile__icon">📚</div>
+  </a>
+
+  <a class="tile tile--childhood" href="/childhood/">
+    <div class="tile__title">Мир детства</div>
+    <div class="tile__subtitle">Мультфильмы, стихи<br>и музыка для детей</div>
+    <div class="tile__illustration tile__illustration--bear" aria-hidden="true"></div>
+  </a>
+
+  <a class="tile tile--kids" href="/kids/">
+    <div class="tile__title tile__title--big">Достижения<br>детей</div>
+    <div class="tile__illustration tile__illustration--kid" aria-hidden="true"></div>
+  </a>
+
+  <a class="tile tile--misc" href="/misc/">
+    <div class="tile__title">Разное</div>
+    <div class="tile__icon">📄</div>
+  </a>
+
+  <a class="tile tile--achievements" href="/achievements/">
+    <div class="tile__title">Достижения</div>
+    <div class="tile__icon">🏆</div>
+  </a>
+</section>

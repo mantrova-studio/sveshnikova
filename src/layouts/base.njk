@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>{{ title or site.name }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="bg">
+    <div class="bg__cloud cloud cloud--1"></div>
+    <div class="bg__cloud cloud cloud--2"></div>
+    <div class="bg__cloud cloud cloud--3"></div>
+    <div class="bg__stars"></div>
+    <div class="bg__rainbow"></div>
+    <div class="bg__grass"></div>
+  </div>
+
+  <main class="container">
+    {{ content | safe }}
+    <footer class="footer">
+      © {{ site.name }} | {{ site.year }} г.
+    </footer>
+  </main>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
